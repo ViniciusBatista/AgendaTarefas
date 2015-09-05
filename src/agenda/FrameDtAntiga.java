@@ -36,6 +36,7 @@ public class FrameDtAntiga extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         JTableHistorico = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,6 +70,10 @@ public class FrameDtAntiga extends javax.swing.JFrame {
         JTableHistorico.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 390));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setText("Editar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 100, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,6 +141,7 @@ public class FrameDtAntiga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JTableHistorico;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

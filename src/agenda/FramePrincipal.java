@@ -57,7 +57,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         
         jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
         jTable2.getColumnModel().getColumn(1).setPreferredWidth(650);
-        jTable2.getColumnModel().getColumn(2).setPreferredWidth(90);
+        jTable2.getColumnModel().getColumn(2).setPreferredWidth(80);
         jTable2.getColumnModel().getColumn(3).setPreferredWidth(70);
         jTable2.getColumnModel().getColumn(4).setPreferredWidth(70);
         
@@ -163,7 +163,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jBConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 150, 50));
+        jPanel1.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 130, 50));
 
         jBExcluir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Excluir.png"))); // NOI18N
@@ -173,7 +173,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jBExcluirActionPerformed(evt);
             }
         });
-        jPanel1.add(jBExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, 50));
+        jPanel1.add(jBExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 50));
 
         jBAtualizar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Atualizar.png"))); // NOI18N
@@ -183,7 +183,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jBAtualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, 50));
+        jPanel1.add(jBAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, 50));
 
         jBConcluirTarefa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBConcluirTarefa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aceitar.png"))); // NOI18N
@@ -193,7 +193,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jBConcluirTarefaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBConcluirTarefa, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, 50));
+        jPanel1.add(jBConcluirTarefa, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, 50));
 
         jBNovaTarefa1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBNovaTarefa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Add.png"))); // NOI18N
@@ -203,7 +203,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jBNovaTarefa1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jBNovaTarefa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 50));
+        jPanel1.add(jBNovaTarefa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 150, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 840, 70));
 

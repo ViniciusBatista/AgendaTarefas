@@ -56,6 +56,7 @@ public class Agenda {
         Conexao.adiciona(tarefa);
     }
     
+   
     public static ArrayList<Tarefa> consultaTarefas(){
         ArrayList<Tarefa> Tarefas = new ArrayList<Tarefa>();
         String SELECT = "select id, descr, data_hora_entrada, data_vencimento, hora_vencimento from agenda_tarefa where data_final is null order by data_vencimento;";

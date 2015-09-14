@@ -14,6 +14,7 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Conexao {
 
@@ -98,6 +99,22 @@ public class Conexao {
                 stmt.close();
             }catch (SQLException e){
                 System.err.println("Erro no update" + e.getMessage());
+            }
+        }
+        
+        public static void updateEdt(int id, String descr, Date dataVenc, Time horaVenc){
+            String UPDATE_EDT = "update agenda_tarefa set descr = ?, data_vencimento = ?, hora_vencimento = ? where id = ?";
+            try{
+                PreparedStatement stmt = con.prepareCall(UPDATE_EDT);
+                stmt.setString(1, descr);
+                stmt.setTimestamp(2, new java.sql.Timestamp(dataVenc.getTime()));
+                stmt.setTime(3, new java.sql.Time(horaVenc.getTime()));
+                
+                
+                stmt.execute();
+                stmt.close();
+            }catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "Erro na edição");
             }
         }
     }

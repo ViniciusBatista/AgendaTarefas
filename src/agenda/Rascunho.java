@@ -5,8 +5,7 @@
  */
 package agenda;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 /**
  *

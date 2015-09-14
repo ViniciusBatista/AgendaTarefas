@@ -5,21 +5,19 @@
  */
 package agenda;
 
-import java.awt.Color;
 import java.awt.Component;
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import sun.swing.table.DefaultTableCellHeaderRenderer;
+
 
 /**
  *
@@ -33,7 +31,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     public FramePrincipal() {
         initComponents();
         inserirTabela();
-        
+
     }
 
 //    class Colorir extends JLabel implements TableCellRenderer {
@@ -51,26 +49,25 @@ public class FramePrincipal extends javax.swing.JFrame {
 //            return this;
 //        }
 //    }
-
     public void inserirTabela() {
         setLocationRelativeTo(null);
-        
+
         jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
         jTable2.getColumnModel().getColumn(1).setPreferredWidth(650);
         jTable2.getColumnModel().getColumn(2).setPreferredWidth(80);
         jTable2.getColumnModel().getColumn(3).setPreferredWidth(70);
         jTable2.getColumnModel().getColumn(4).setPreferredWidth(70);
-        
+
         jTable2.setCellSelectionEnabled(false);
         jTable2.setRowSelectionAllowed(true);
- 
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");//Formato da data para ser exibida na tabela
 
         DateFormat data = DateFormat.getDateInstance();
-       
+
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         ArrayList<Tarefa> listaTf = Agenda.consultaTarefas();
-        
+
         ArrayList<Date> listaDt = new ArrayList<Date>();
         Object[] fila = new Object[model.getColumnCount()];
         for (int i = 0; i < listaTf.size(); i++) {
@@ -78,7 +75,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             fila[1] = listaTf.get(i).getDescr();
             fila[2] = sdf.format(listaTf.get(i).getData_hora_entrada());
             fila[3] = sdf.format(listaTf.get(i).getData_vencimento());
-            fila[4] = listaTf.get(i).getHora_vencimento();            
+            fila[4] = listaTf.get(i).getHora_vencimento();
             model.addRow(fila);
         }
     }
@@ -141,6 +138,11 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
         jTable2.setColumnSelectionAllowed(true);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
         jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
@@ -156,54 +158,54 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBConsultar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Lupa.png"))); // NOI18N
+        jBConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Lupa.png"))); // NOI18N
         jBConsultar.setText("Consultar");
         jBConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 130, 50));
+        jPanel1.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 130, 50));
 
         jBExcluir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Excluir.png"))); // NOI18N
+        jBExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Excluir.png"))); // NOI18N
         jBExcluir.setText("Excluir Tarefa");
         jBExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBExcluirActionPerformed(evt);
             }
         });
-        jPanel1.add(jBExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 50));
+        jPanel1.add(jBExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, 50));
 
         jBAtualizar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Atualizar.png"))); // NOI18N
+        jBAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Atualizar.png"))); // NOI18N
         jBAtualizar.setText("Atualizar");
         jBAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAtualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, 50));
+        jPanel1.add(jBAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, 50));
 
         jBConcluirTarefa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBConcluirTarefa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aceitar.png"))); // NOI18N
+        jBConcluirTarefa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Confirmar.png"))); // NOI18N
         jBConcluirTarefa.setText("Concluir Tarefa");
         jBConcluirTarefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBConcluirTarefaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBConcluirTarefa, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, 50));
+        jPanel1.add(jBConcluirTarefa, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, 50));
 
         jBNovaTarefa1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBNovaTarefa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Add.png"))); // NOI18N
+        jBNovaTarefa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Add.png"))); // NOI18N
         jBNovaTarefa1.setText("Nova Tarefa");
         jBNovaTarefa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNovaTarefa1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jBNovaTarefa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 150, 50));
+        jPanel1.add(jBNovaTarefa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 840, 70));
 
@@ -216,15 +218,15 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
         // TODO add your handling code here:
-       FrameDtAntiga frameDtAntiga = new FrameDtAntiga();
-       frameDtAntiga.setVisible(true);
+        FrameDtAntiga frameDtAntiga = new FrameDtAntiga();
+        frameDtAntiga.setVisible(true);
     }//GEN-LAST:event_jBConsultarActionPerformed
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         // TODO add your handling code here:
         int selecao = jTable2.getSelectedRow();
         if (selecao == -1) {
-            JOptionPane.showMessageDialog(rootPane, "Selecione uma linha para excluir! ");
+            JOptionPane.showMessageDialog(rootPane, "Selecione uma tarefa para excluir! ");
         } else {
             String id = jTable2.getValueAt(selecao, 0).toString();//Pega o id da linha selecionada para excluir do banco
             //System.out.println(id);
@@ -235,39 +237,39 @@ public class FramePrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBExcluirActionPerformed
 
-    public class TabelaTextAreaRenderer extends JTextArea implements TableCellRenderer{  
-    // This method is called each time a cell in a column  
-    // using this renderer needs to be rendered.  
-      
-    public  TabelaTextAreaRenderer(){  
-        setLineWrap(true);  
-        setWrapStyleWord(true);  
-          
-    }  
-      
-    public Component getTableCellRendererComponent(JTable table, Object value,  
-            boolean isSelected, boolean hasFocus, int rowIndex, int vColIndex) {  
-        // 'value' is value contained in the cell located at  
-        // (rowIndex, vColIndex)  
-  
-        if (isSelected) {  
-            // cell (and perhaps other cells) are selected  
-        }  
-  
-        if (hasFocus) {  
-            // this cell is the anchor and the table has the focus  
-        }  
-        // Configure the component with the specified value  
-        setText(value.toString());  
-  
-        // Set tool tip if desired  
-        setToolTipText((String)value);  
-  
-        // Since the renderer is a component, return itself  
-        return this;  
-    }  
-  
-} 
+    public class TabelaTextAreaRenderer extends JTextArea implements TableCellRenderer {
+        // This method is called each time a cell in a column  
+        // using this renderer needs to be rendered.  
+
+        public TabelaTextAreaRenderer() {
+            setLineWrap(true);
+            setWrapStyleWord(true);
+
+        }
+
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int rowIndex, int vColIndex) {
+            // 'value' is value contained in the cell located at  
+            // (rowIndex, vColIndex)  
+
+            if (isSelected) {
+                // cell (and perhaps other cells) are selected  
+            }
+
+            if (hasFocus) {
+                // this cell is the anchor and the table has the focus  
+            }
+            // Configure the component with the specified value  
+            setText(value.toString());
+
+            // Set tool tip if desired  
+            setToolTipText((String) value);
+
+            // Since the renderer is a component, return itself  
+            return this;
+        }
+
+    }
     private void jBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAtualizarActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -283,7 +285,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formFocusGained
 
     private void jBConcluirTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConcluirTarefaActionPerformed
-           int selecao = jTable2.getSelectedRow();
+        int selecao = jTable2.getSelectedRow();
         if (selecao == -1) {
             JOptionPane.showMessageDialog(rootPane, "Selecione a tarefa para concluir! ");
         } else {
@@ -301,6 +303,24 @@ public class FramePrincipal extends javax.swing.JFrame {
         Frame_Insercao frame = new Frame_Insercao();
         frame.setVisible(true);
     }//GEN-LAST:event_jBNovaTarefa1ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+
+        if (evt.getClickCount() > 1) {
+
+            int row = this.jTable2.rowAtPoint(evt.getPoint());
+            // Abre um Frame pra editar os dados  
+            String descr =  (String)jTable2.getValueAt(row, 1);//Recebe texto do campo clicado para ser editado
+            String dataVenc = (String) jTable2.getValueAt(row, 3);
+            Time horaVenc = (Time) jTable2.getValueAt(row, 4);//recebe a hora do venciemento para o campo ser editado
+            FrameEdt edt = new FrameEdt();
+            edt.inserirDados(descr, dataVenc, horaVenc);
+            edt.setVisible(true);
+//            System.out.println(jTable2.getValueAt(row, 0));
+//            int id = (int) jTable2.getValueAt(row, 0);
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments

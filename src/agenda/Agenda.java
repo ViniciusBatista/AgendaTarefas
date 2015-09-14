@@ -8,7 +8,6 @@ package agenda;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class Agenda {
         try {
             data = new SimpleDateFormat("dd/MM/yyyy").parse(data_ven);
             
-            if (data.after(new Date())){//Conferi se a data do vencimento já passou
+            if (data.after(new Date())){//Conferi se a data do vencimento já passou Conferir trecho de código
                 tarefa.setData_vencimento(data);
             }else {
                 throw new Exception();
@@ -80,7 +79,7 @@ public class Agenda {
     
     public static ArrayList<Tarefa> consultaTarefasAntigas(){
         ArrayList<Tarefa> Tarefas = new ArrayList<Tarefa>();
-        String SELECT = "select id, descr, data_hora_entrada, data_vencimento, hora_vencimento from agenda_tarefa where data_final is not null;";
+        String SELECT = "select id, descr, data_hora_entrada, data_vencimento, hora_vencimento, data_final from agenda_tarefa where data_final is not null;";
             try{
             Conexao.conecte();
             ResultSet rs = Conexao.executeQuery(SELECT);
@@ -91,6 +90,7 @@ public class Agenda {
                 tf.setData_hora_entrada(rs.getTimestamp("data_hora_entrada"));
                 tf.setData_vencimento(rs.getDate("data_vencimento"));
                 tf.setHora_vencimento(rs.getTime("hora_vencimento"));
+                tf.setData_final(rs.getDate("data_final"));
                 Tarefas.add(tf);
             }
             }catch(SQLException e){
@@ -109,11 +109,11 @@ public class Agenda {
         Conexao.update(id);
     }
     
-    public static void main(String[] args) {
-       FramePrincipal frameP = new FramePrincipal();
-       frameP.setVisible(true);
-
-      //  inserirNovaTarefa("testando novamente", "08/09/2015", "13:09:00");
-    }
+//    public static void main(String[] args) {
+//       FramePrincipal frameP = new FramePrincipal();
+//       frameP.setVisible(true);
+//
+//      //  inserirNovaTarefa("testando novamente", "08/09/2015", "13:09:00");
+//    }
 
 }

@@ -6,8 +6,6 @@
 package agenda;
 
 import java.sql.Time;
-import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -20,6 +18,7 @@ public class Tarefa {
     private Date data_hora_entrada;
     private Date data_vencimento = new Date();
     private Time hora_vencimento;
+    private Date data_final;
 
     public int getId() {
         return id;
@@ -61,8 +60,13 @@ public class Tarefa {
         this.hora_vencimento = hora_vencimento;
     }
 
-   
+    public Date getData_final() {
+        return data_final;
+    }
 
+    public void setData_final(Date data_final) {
+        this.data_final = data_final;
+    }
     
-    
+
 }

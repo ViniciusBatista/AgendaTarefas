@@ -74,7 +74,7 @@ public class Frame_Insercao extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 110, -1));
 
         jBCancelar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cancelar.png"))); // NOI18N
+        jBCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Cancelar.png"))); // NOI18N
         jBCancelar.setText("Cancelar");
         jBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +84,7 @@ public class Frame_Insercao extends javax.swing.JFrame {
         jPanel2.add(jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, 50));
 
         jBGravar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Aceitar.png"))); // NOI18N
+        jBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Gravar.png"))); // NOI18N
         jBGravar.setText("Gravar");
         jBGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

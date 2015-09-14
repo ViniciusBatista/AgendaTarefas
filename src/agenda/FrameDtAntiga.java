@@ -36,10 +36,15 @@ public class FrameDtAntiga extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         JTableHistorico = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jCBSelecionarFiltro = new javax.swing.JComboBox();
+        jFdataConsulta = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jBBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JTableHistorico.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -48,14 +53,14 @@ public class FrameDtAntiga extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Descrição da Tarefa", "Data Entrada", "Data Venci.", "Hora Venc."
+                "ID", "Descrição da Tarefa", "Data Entrada", "Data Venci.", "Hora Venc.", "Conclusão"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -67,26 +72,73 @@ public class FrameDtAntiga extends javax.swing.JFrame {
             }
         });
         JTableHistorico.setColumnSelectionAllowed(true);
+        JTableHistorico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTableHistoricoMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(JTableHistorico);
         JTableHistorico.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 390));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 390));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setText("Editar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 100, 40));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Print.png"))); // NOI18N
         jButton2.setText("Imprimir");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, 40));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, 50));
+
+        jCBSelecionarFiltro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jCBSelecionarFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Data do Vencimento", "Data de Conclusão", "Data de Entrada" }));
+        jCBSelecionarFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBSelecionarFiltroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCBSelecionarFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 150, 20));
+
+        jFdataConsulta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jFdataConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFdataConsultaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jFdataConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 170, 20));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setText("Informe a Data:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        jBBuscar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/etc/Lupa.png"))); // NOI18N
+        jBBuscar.setText("Pesquisar");
+        jPanel1.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 680, 70));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jFdataConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFdataConsultaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFdataConsultaActionPerformed
+
+    private void jCBSelecionarFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecionarFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBSelecionarFiltroActionPerformed
+
+    private void JTableHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableHistoricoMouseClicked
+     
+    }//GEN-LAST:event_JTableHistoricoMouseClicked
     public void inserirTabela() {
         setLocationRelativeTo(null);
         
         JTableHistorico.getColumnModel().getColumn(0).setPreferredWidth(30);
         JTableHistorico.getColumnModel().getColumn(1).setPreferredWidth(380);
+        JTableHistorico.getColumnModel().getColumn(2).setPreferredWidth(80);
+        JTableHistorico.getColumnModel().getColumn(4).setPreferredWidth(65);
         JTableHistorico.setCellSelectionEnabled(false);
         JTableHistorico.setRowSelectionAllowed(true);
  
@@ -105,6 +157,7 @@ public class FrameDtAntiga extends javax.swing.JFrame {
             fila[2] = sdf.format(listaTf.get(i).getData_hora_entrada());
             fila[3] = sdf.format(listaTf.get(i).getData_vencimento());
             fila[4] = listaTf.get(i).getHora_vencimento();            
+            fila[5] = sdf.format(listaTf.get(i).getData_final());
             model.addRow(fila);
         }
     }
@@ -146,8 +199,12 @@ public class FrameDtAntiga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JTableHistorico;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jCBSelecionarFiltro;
+    private javax.swing.JFormattedTextField jFdataConsulta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
